@@ -115,7 +115,7 @@
 
 	                     		$("#imagen-response").show();
 	                     		$imagen = $("#imagen-response");
-	                     		$imagen[0].setAttribute("src","http://127.0.0.1:8000/" + response.perro[0].imagen)
+	                     		$imagen[0].setAttribute("src","https://www.chikavi.com/" + response.perro[0].imagen)
                      		 }
 					    }
 					});
