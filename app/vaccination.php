@@ -8,7 +8,7 @@ class vaccination extends Model
 {
 	 
     protected $fillable = [
-        'nombre', 'id_dog', 'fecha',
+        'nombre', 'id_dog', 'fecha', 
     ];
 
      public function scopegetVaccinations($query,$id){
