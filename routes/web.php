@@ -27,3 +27,7 @@ Route::resource('/desparasitacion','DewormingsController');
 Route::post('/vacunas/post','VaccinationsController@busqueda');
 
 Route::get('/pdf/{qrcode}','DogController@pdf')->name('pdf');
+
+Route::get('politica/',function(){
+return view('politica');
+});
