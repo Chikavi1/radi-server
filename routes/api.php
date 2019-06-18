@@ -17,8 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/events', 'ApiController@showEvents');
+Route::get('/eventsFinished', 'ApiController@showEventsFinished');
 Route::get('/create_request','ApiController@createRequest');
 Route::get('/create_complaint','ApiController@createComplaint');
 Route::get('/search_qr_code', 'ApiController@searchWithQrCode');
 Route::get('/getVaccinations','ApiController@getVaccinations');
 Route::get('/getDewormings','ApiController@getDewormings');
+Route::get('/alies','ApiController@showAllies');	

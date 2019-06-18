@@ -15,6 +15,7 @@
 	    	<div class="card-reveal">
 	      		<span class="card-title grey-text text-darken-4">{{$evento->titulo}}<i class="material-icons right">close</i></span>
 	      		<p>{!! $evento->descripcion !!}</p>
+	      		<a href="{{ route('eventos.edit',$evento->id) }}">Editar</a>
 	    	</div>
 	  	</div>
     </div>

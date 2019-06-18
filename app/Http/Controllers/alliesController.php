@@ -3,40 +3,18 @@
 namespace Radi\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Radi\Event;
-use Radi\Http\Requests\CreateEventRequest;
-use Carbon\Carbon; 
-class EventsController extends Controller
+use Radi\ally;
+class alliesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $eventos = Event::all();
-            # code...
-        foreach($eventos as $evento){
-                 $eventoEditado = Event::findOrFail($evento->id);
-            if ($evento->fecha < now()->toDateString()){
-                 $eventoEditado->status = 'Inactivo';
-                 $eventoEditado->save();
-            }else{
-                 $eventoEditado->status = 'Activo';
-                 $eventoEditado->save();
-            }
-        }
-    }
-
-
     public function index()
     {
-        $eventos = Event::paginate(6);
-        return view('eventos.index')->with(compact('eventos'));
-
+    $aliados = ally::all(); 
+    return view('aliados.index')->with(compact('aliados'));
     }
 
     /**
@@ -46,7 +24,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('eventos.create');
+        return view('aliados.create');
     }
 
     /**
@@ -55,24 +33,27 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateEventRequest $request)
+    public function store(Request $request)
     {
-        $ini =  date("y/m/d",strtotime($request->fecha));
         if($request->hasFile('imagen')){
 
             $imagen = $request->file('imagen')->store('public');
             $resultado = str_replace("public", "storage", $imagen);
         }
 
-        $event = new Event([
-            'titulo' => $request->titulo,
-            'descripcion' => $request->descripcion,
+        $aliado = new ally([
+            'nombre' => $request->nombre,
+            'personal' => $request->personal,
             'imagen' => $resultado,
-            'fecha' => $ini
+            'horario' => $request->horario,
+            'direccion' => $request->direccion,
+            'redes' => $request->redes,
+            'telefono' => $request->telefono,
+            'promociones' => $request->promociones
         ]);
-        $event->save();
 
-        return redirect('/home');
+        $aliado->save();
+        return redirect('/aliados');
     }
 
     /**
@@ -94,8 +75,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        $evento = Event::findOrFail($id);
-        return view('eventos.edit')->with(compact('evento'));
+        $aliado = ally::findOrFail($id);
+        return view('aliados.edit')->with(compact('aliado'));
     }
 
     /**
@@ -104,23 +85,29 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     $item = Items::findOrFail($id)->update($request->all());
      */
     public function update(Request $request, $id)
     {
-        $evento = Event::findOrFail($id);
+        $aliado = ally::findOrFail($id);
          if($request->hasFile('imagen')){
             $imagen = $request->file('imagen')->store('public');
             $resultado = str_replace("public", "storage", $imagen);
         }else{
-        $resultado = $evento->imagen;
+        $resultado = $aliado->imagen;
         }
-        $evento->titulo = $request->titulo;
-        $evento->imagen = $resultado;
-        $evento->descripcion = $request->descripcion;
-        $evento->fecha = $request->fecha;
+        $aliado->nombre = $request->nombre;
+        $aliado->personal = $request->personal;
+        $aliado->imagen = $resultado;
+        $aliado->horario = $request->horario;
+        $aliado->direccion = $request->direccion;
+        $aliado->redes = $request->redes;
+        $aliado->telefono = $request->telefono;
+        $aliado->promociones = $request->promociones;
 
-        $evento->save();
-        return redirect('/eventos');
+        $aliado->save();
+       return redirect('/aliados');
+
 
     }
 
@@ -132,6 +119,9 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aliado = ally::findOrFail($id);
+        $aliado->delete();
+        return redirect('/aliados');
+
     }
 }

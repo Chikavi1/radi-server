@@ -85,6 +85,18 @@
             </a>
           </div>
         </div>
+        <div class="col s12 m4">
+          <div class="card">
+            <a href="{{ route('aliados.index') }}">
+               <div class="card">
+                <div class="card-image">
+                  <img src="{{ asset('img/correo.png') }} ">
+                  <span class="card-title">Aliados</span>
+                </div>
+               </div>
+            </a>
+          </div>
+        </div>
         </div>
      
    </div>
