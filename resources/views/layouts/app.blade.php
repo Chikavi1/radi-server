@@ -20,6 +20,23 @@
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"></link>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <head>
+  <link rel="manifest" href="/manifest.json" />
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "ZDIzMTRhZDEtYzNhNy00OWUyLWI3NTgtMGQ0YzU4YzlhNDFj",
+        autoResubscribe: true,
+        notifyButton: {
+          enable: true,
+        },
+      });
+      OneSignal.showNativePrompt();
+    });
+  </script>
+</head>
 </head>
 <body>
     
