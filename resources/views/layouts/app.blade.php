@@ -22,20 +22,18 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <head>
   <link rel="manifest" href="/manifest.json" /> 
-   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: "ZDIzMTRhZDEtYzNhNy00OWUyLWI3NTgtMGQ0YzU4YzlhNDFj",
-        autoResubscribe: true,
-        notifyButton: {
-          enable: true,
-        },
-      });
-      OneSignal.showNativePrompt();
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "ac1d532e-4003-4c9a-98c1-7a198fc51b7b",
+      notifyButton: {
+        enable: true,
+      },
     });
-  </script>
+  });
+</script>
 </head>
 </head>
 <body>
