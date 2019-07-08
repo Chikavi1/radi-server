@@ -25,6 +25,7 @@ Route::resource('/peticiones','ResquestController');
 Route::resource('/vacunas','VaccinationsController');
 Route::resource('/desparasitacion','DewormingsController');
 Route::post('/vacunas/post','VaccinationsController@busqueda');
+Route::resource('aliados','alliesController');
 
 Route::get('/pdf/{qrcode}','DogController@pdf')->name('pdf');
 
