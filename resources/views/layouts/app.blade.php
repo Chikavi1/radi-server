@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <head>
   <link rel="manifest" href="/manifest.json" /> 
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(function() {
