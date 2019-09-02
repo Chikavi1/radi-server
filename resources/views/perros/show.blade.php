@@ -65,7 +65,7 @@
 				<h3 class="center">Notas</h3>
 				<p class="justify">{!! $perro->notas !!}</p>
 			</div>
+	<a href="{{ route('perros.edit' ,$perro->id) }}" class="btn btn-block color-cut">Editar</a>
 		</div>
 	</div>
-
 @endsection

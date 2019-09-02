@@ -88,8 +88,8 @@
 		      <div class="input-field col  offset-s3 s6">
 				    <select name="status">
 				      <option value="" disabled selected>selecciona el estado</option>
-				      <option value="macho" >No Adoptado</option>
-				      <option value="hembra" >Adoptado</option>
+				      <option value="noAdoptado" >No Adoptado</option>
+				      <option value="Adoptado" >Adoptado</option>
 				    </select>
 				  </div>
 				<div>

@@ -10,6 +10,7 @@ use Radi\Dog;
 use Radi\Vaccination;
 use Radi\Deworming;
 use Radi\ally;
+use Hash;
 
 class ApiController extends Controller
 {
@@ -53,4 +54,5 @@ class ApiController extends Controller
         $deworming = Deworming::getDewormings($request->id);
         return $deworming;
     }
+
 }

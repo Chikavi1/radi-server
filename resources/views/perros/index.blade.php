@@ -6,6 +6,9 @@
   bottom: -100px;
   color: white;
 } 
+.render{
+  margin-top: 3em;
+}
   </style>
   <div class="row">
 	@foreach($perros as $perro)
@@ -22,9 +25,10 @@
 	@endforeach
 
   </div>
-
+<div class="render"> 
+  {!! $perros->render() !!}
+</div>
   <footer >
-        {!! $perros->render() !!}
     </footer>
             
 @endsection

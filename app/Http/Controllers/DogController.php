@@ -86,7 +86,7 @@ class DogController extends Controller
             'senas' => $request->senas ,
             'notas' => $request->notas ,
             'status' => $request->status ,
-            'qr_code' => $qr_code ,
+            'qr_code' => 'RD10'.$qr_code ,
         ]);
         $perro->save();
 
@@ -114,7 +114,8 @@ class DogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $perro = Dog::findOrFail($id);
+        return view('perros.edit')->with(compact('perro'));
     }
 
     /**
@@ -126,7 +127,37 @@ class DogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $perro = Dog::findOrFail($id);
+        $resultado = $perro->imagen;
+        $sexo = $perro->sexo;
+        $especie = $perro->especie;
+        $status = $perro->status;
+
+        if($request->hasFile('imagen')){
+            $imagen = $request->file('imagen')->store('public');
+            $resultado = str_replace("public", "storage", $imagen);
+        }
+        if($request->sexo){
+            $sexo = $request->sexo;
+        }
+        if($request->especie){
+            $especie = $request->especie;
+        }
+        if($request->status){
+            $status = $request->status;
+        }
+        $perro->nombre = $request->get('nombre');
+        $perro->especie = $especie;
+        $perro->raza = $request->get('raza');
+        $perro->color = $request->get('color');
+        $perro->imagen = $resultado;
+        $perro->sexo = $sexo;
+        $perro->senas = $request->get('senas');
+        $perro->notas = $request->get('notas');
+        $perro->status = $status;
+        $perro->qr_code = $request->get('qr_code');
+        $perro->save();
+        return redirect()->route('perros.index');
     }
 
     /**
