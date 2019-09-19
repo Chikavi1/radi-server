@@ -55,4 +55,8 @@ class ApiController extends Controller
         return $deworming;
     }
 
+    public function getStatus(Request $request){
+        $adopted = Dog::where('status',$request->get('name'))->get();
+        return $adopted;
+    }
 }

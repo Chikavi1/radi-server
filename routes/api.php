@@ -23,4 +23,7 @@ Route::get('/create_complaint','ApiController@createComplaint');
 Route::get('/search_qr_code', 'ApiController@searchWithQrCode');
 Route::get('/getVaccinations','ApiController@getVaccinations');
 Route::get('/getDewormings','ApiController@getDewormings');
-Route::get('/alies','ApiController@showAllies');	
+Route::get('/alies','ApiController@showAllies');
+
+
+Route::get('/getStatus','ApiController@getStatus');
