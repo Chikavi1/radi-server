@@ -89,7 +89,7 @@
 		      <div class="input-field col  offset-s3 s6">
 				    <select name="status">
 				      <option value="" disabled selected>{{$perro->status}}</option>
-				      <option value="noAdoptado" >No Adoptado</option>
+				      <option value="no Adoptado" >No Adoptado</option>
 				      <option value="Adoptado" >Adoptado</option>
 				    </select>
 				  </div>
