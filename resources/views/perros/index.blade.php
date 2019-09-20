@@ -10,17 +10,18 @@
   margin-top: 3em;
 }
   </style>
-  <div class="row">
+  <div class="row" >
 	@foreach($perros as $perro)
-    <div class="col m4">
-  	  <a href="{{ route('perros.show',$perro->id) }}">
-        <div class="card">
-          <div class="card-image">
-            <img src="/{{$perro->imagen}}">
-            <span class="card-title">{{$perro->nombre}}</span>
-          </div>
+    <div class="col m4" >
+      <div class="card">
+        <div class="card-image">
+          <img src="/{{$perro->imagen}}" height="300">
+
+
+          <span class="card-title"><a class="white-text" style="font-weight: bold;" href="{{ route('perros.show',$perro->id) }}">{{$perro->nombre}}</a></span>
         </div>
-  	  </a>
+        
+      </div>
     </div>
 	@endforeach
 
