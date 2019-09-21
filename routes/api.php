@@ -25,5 +25,5 @@ Route::get('/getVaccinations','ApiController@getVaccinations');
 Route::get('/getDewormings','ApiController@getDewormings');
 Route::get('/alies','ApiController@showAllies');
 
-
+Route::get('getCases','ApiController@getCases');
 Route::get('/getStatus','ApiController@getStatus');

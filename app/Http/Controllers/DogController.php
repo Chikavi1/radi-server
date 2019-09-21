@@ -87,6 +87,10 @@ class DogController extends Controller
             'notas' => $request->notas ,
             'status' => $request->status ,
             'qr_code' => 'RD10'.$qr_code ,
+            'place' => $request->place,
+            'user_id' => $request->user_id,
+            'owner' => $request->owner,
+            'history' => $request->history
         ]);
         $perro->save();
 
@@ -156,6 +160,11 @@ class DogController extends Controller
         $perro->notas = $request->get('notas');
         $perro->status = $status;
         $perro->qr_code = $request->get('qr_code');
+        $perro->place = $request->get('place');
+        $perro->user_id = $request->get('user_id');
+        $perro->owner = $request->get('owner');
+        $perro->history = $request->get('history');
+
         $perro->save();
         return redirect()->route('perros.index');
     }

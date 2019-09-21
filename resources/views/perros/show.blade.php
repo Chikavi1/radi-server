@@ -65,6 +65,31 @@
 				<h3 class="center">Notas</h3>
 				<p class="justify">{!! $perro->notas !!}</p>
 			</div>
+			<div>
+				<div class="row">
+					<div class="col m3 offset-m2">
+						<h5>Estado</h5>
+						<p>{{ $perro->status }}</p>
+					</div>
+					<div class="col m2 offset-m2">
+						<h5>Lugar</h5>
+						<p>{{$perro->place}}</p>
+					</div>
+				</div>
+				<div class="center">
+					
+				@if($perro->status == "Adoptado")
+				<h5>Dueño</h5>
+				<p>{{$perro->owner}}</p>
+				@endif
+				</div>		
+				<div>
+					<h4 class="center">Historia</h4>
+					<div class="container">
+						<p style="text-align: justify;">{!! $perro->history !!}</p>
+					</div>
+				</div>
+			</div>
 	<a href="{{ route('perros.edit' ,$perro->id) }}" class="btn btn-block color-cut">Editar</a>
 		</div>
 	</div>

@@ -95,10 +95,27 @@
 				  </div>
 			<div>
 
-			<div class="input-field col  offset-s3 s6">
+			<div class="input-field col  m6">
 				<input type="text" name="qr_code" value="{{$perro->qr_code}}">
 				<label for="qr_code">qrcode</label>
 			</div> 	
+			<div class="input-field col m6">
+				<input type="text" name="place" value="{{$perro->place}}">
+				<label for="place">Lugar</label>
+			</div> 	
+			<div class="input-field col  m6">
+				<input type="text" name="user_id" value="{{$perro->user_id}}">
+				<label for="user_id">usuario id</label>
+			</div> 	
+			<div class="input-field col  m6">
+				<input type="text" name="owner" value="{{$perro->owner}}">
+				<label for="owner">Dueño</label>
+			</div>
+			<div class="input-field col s8 offset-s2">
+					<p class="center">Historia:</p>
+		        	<textarea name="history" id="" cols="30" rows="10" class="ckeditor" required >		        	{{$perro->history}}
+		        	</textarea>
+ 				</div>
 		        <input type="submit" class="btn btn-block color-cut" value="Enviar">
 				</form>
 				</div>
