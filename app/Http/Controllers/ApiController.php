@@ -59,4 +59,9 @@ class ApiController extends Controller
         $adopted = Dog::where('status',$request->get('name'))->get();
         return $adopted;
     }
+
+    public function getCases(Request $request){
+        $cases = Dog::whereNotNull('history')->where('status','adoptado')->get();
+        return $cases;
+    }
 }
