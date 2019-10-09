@@ -176,6 +176,7 @@ return [
         // Radi\Providers\BroadcastServiceProvider::class,
         Radi\Providers\EventServiceProvider::class,
         Radi\Providers\RouteServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 

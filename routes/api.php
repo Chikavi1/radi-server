@@ -27,3 +27,26 @@ Route::get('/alies','ApiController@showAllies');
 
 Route::get('getCases','ApiController@getCases');
 Route::get('/getStatus','ApiController@getStatus');
+
+    Route::post('createdog','AuthController@createDogProfile');
+    Route::get('getDogs','AuthController@getDogs');
+    Route::get('deletedog','AuthController@deleteDog');
+//						auth 
+
+	Route::get('crear_cuenta','AuthController@crearCuenta');
+	Route::get('ingresar_cuenta','AuthController@ingresarCuenta');
+
+  	Route::get('profile','AuthController@profile');
+    Route::post('getimage','AuthController@getimage64');
+    Route::get('deletesession','AuthController@deletesession');
+    Route::post('changepassword','AuthController@changepassword');
+
+
+    Route::group(['middleware' => 'auth:api'], function() {
+    	Route::get('signup', 'AuthController@signup');
+
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+
+

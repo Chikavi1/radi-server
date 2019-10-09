@@ -177,6 +177,11 @@ class DogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dog = Dog::findOrFail($id);
+        unlink('storage/'.$dog->imagen);
+        $dog->delete();
+
+        return redirect()->route('perros.index');
+
     }
 }

@@ -9,6 +9,7 @@
 <script>
 
    $(document).ready(function(){
+   	$('.modal').modal();
     $('select').formSelect();
     $('textarea').ckeditor();
  });
@@ -115,13 +116,30 @@
 					<p class="center">Historia:</p>
 		        	<textarea name="history" id="" cols="30" rows="10" class="ckeditor" required >		        	{{$perro->history}}
 		        	</textarea>
- 				</div>
+ 			</div>
+
 		        <input type="submit" class="btn btn-block color-cut" value="Enviar">
 				</form>
-				</div>
+            <a href="#modal1" class="red-text waves-effect waves-red btn-flat modal-trigger ">Eliminar</a>
+		</div>
 
 
 	</div>
 </div>
+
+	<div id="modal1" class="modal">
+	    <div class="modal-content center-align">
+	      <h4 class="">¿Estas seguro de eliminarlo?</h4>
+	      <p>Al eliminarlo no habrá marcha atrás</p>
+	    </div>
+	    <div class="modal-footer">
+			<form method="POST" action="{{ route('perros.destroy',$perro->id) }}">
+	      		<a href="#!" class="modal-close waves-effect waves-green blue-text btn-flat">Cancelar</a>
+	      		@csrf
+	      		@method('DELETE')
+	      	<button class="red-text waves-effect waves-red btn-flat modal-trigger" type="submit">Eliminar</button>
+	      </form>
+	    </div>
+	</div>
 
 @endsection
